@@ -1,0 +1,107 @@
+
+        body {
+            height: 100vh;
+            margin: 0;
+            background: radial-gradient(circle, grey, black); /* Set background to black */
+            font-family: 'Arial', sans-serif;
+            color: #fff; /* Change text color to white for contrast */
+        }
+        
+        .piano {
+            display: flex;
+            justify-content: center;
+            margin-top: 5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+        }
+
+        .key-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        .white-key {
+            position: relative; /* Ensure the black key is positioned inside the white key */
+            width: 60px;
+            color: #000;
+            height: 200px;
+            border: 1px solid #ccc; /* Lighter border for white keys */
+            background: linear-gradient(to top, #fff, #e5e5e5); /* White key gradient */
+            display: flex;
+            justify-content: center;
+            align-items: end;
+            z-index: 1;
+            transition: background-color 0.1s, box-shadow 0.1s;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+        }
+
+        .black-key {
+            position: absolute; /* Position the black key inside the white key */
+            top: 0;
+            left: 70%; /* Adjust to properly align on top of white keys */
+            color: #fff;
+            width: 40px;
+            height: 120px;
+            background: linear-gradient(to top, #333, #000); /* Black key gradient */
+            z-index: 2;
+            border-radius: 4px;
+            transition: background-color 0.1s, box-shadow 0.1s;
+        }
+
+        .white-key:active {
+            background-color: #d3d3d3;
+            box-shadow: 0 0 15px 5px lime; /* Lime glow when active */
+        }
+
+        .black-key:active {
+            background-color: #444;
+            box-shadow: 0 0 15px 5px lime; /* Lime glow when active */
+        }
+
+        /* Adjust black key positions */
+        .black-key:nth-child(2) { left: 45px; }
+        .black-key:nth-child(4) { left: 105px; }
+        .black-key:nth-child(7) { left: 225px; }
+        .black-key:nth-child(9) { left: 285px; }
+        .black-key:nth-child(11) { left: 345px; }
+
+        .controls {
+            width: 100%;
+            padding: 2rem 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .controls button {
+            padding: 10px 15px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: lime;
+            color: #000;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .controls button:hover {
+            background-color: #a35ee9;
+        }
+
+        /* Lime box shadow on active key */
+        .active {
+            box-shadow: 0 0 15px 5px lime;
+        }
+
+        /* Added styles for better visual appeal */
+        .highlight {
+            background-color: #a35ee9 !important;
+            box-shadow: 0 0 15px 5px lime; /* Highlight with lime glow */
+        }
+
+        /* Hide the file input */
+        #upload-json {
+            display: none;
+        }
